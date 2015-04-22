@@ -1,0 +1,59 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+# User I18N
+TCfgUser = 用户
+Users=用户列表
+name = 名称
+displayName = 显示名称
+password = 密码
+age = 年龄
+description = 描述
+
+# Default CRUD messages
+# ~~~~~~
+
+crud.title=管理控制台
+crud.home=主页
+crud.blank=新建
+crud.index.title=选择一个对象
+crud.index.objectType=对象类型
+crud.index.action=
+crud.index.add=添加
+crud.add=添加&{%s}
+crud.list.title=&{%s}
+crud.list.size=%d &{%s}
+crud.list.totalSize=总共%d
+crud.pagination.previous=« 往前
+crud.pagination.next=往后 »
+crud.pagination.last=最后一页 »»
+crud.pagination.first=«« 第一页
+crud.show.title=编辑 &{%s}
+crud.save=保存
+crud.saveAndContinue=保存并继续编辑
+crud.cancel=取消
+crud.hasErrors=页面存在错误，请先解决错误
+crud.blank.title=添加&{%s}
+crud.saveAndAddAnother=保存并添加另一个
+crud.delete=删除&{%s}
+crud.created=&{%s}已经创建
+crud.saved=The &{%s} has been saved
+crud.deleted=The &{%s} has been deleted
+crud.delete.error=Cannot delete this object
+crud.search=Search
+crud.none=(None)
+crud.selectValue=(Please select a value)
+
+crud.help.required=必须项.
+crud.help.minlength=最小长度为%d.
+crud.help.maxlength=最大长度%d.
+crud.help.email=有效的邮箱地址.
+crud.help.dateformat=&{%s} format.
+crud.help.numeric=Numeric.
+crud.help.min=Must be greater than %d.
+crud.help.future=In the future.
+crud.help.past=In the past.
+crud.help.after=After %s.
+crud.help.before=Before %s.
+crud.help.range=Between %d and %d

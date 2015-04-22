@@ -1,0 +1,11 @@
+# You can specialize this file for each language.
+# For example, for French create a messages.fr file
+#
+
+# User I18N
+TCfgUser = User
+name = Name
+displayName = Display Name
+password = Password
+age = Age
+description = Description
