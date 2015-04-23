@@ -2,8 +2,14 @@ package models;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import controllers.CRUD.Hidden;
@@ -21,6 +27,7 @@ public class TCfgBlog extends Model {
 	
 	@Required
 	@MaxSize(5000)
+	@Lob
 	public String content;
 	
 	@Hidden
@@ -29,4 +36,11 @@ public class TCfgBlog extends Model {
 	@Hidden
 	public Long update_at = Calendar.getInstance().getTimeInMillis();
 	
+	@ManyToMany(cascade=CascadeType.PERSIST)
+	@JoinTable(name="t_cfg_blog_tags")
+	public Set<TCfgTag> tags = new HashSet<TCfgTag>();
+	
+	public String toString(){
+		return title;
+	}
 }

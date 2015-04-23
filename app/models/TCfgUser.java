@@ -40,6 +40,10 @@ public class TCfgUser extends Model {
 	@MaxSize(5000)
 	public String description;
 	
+	public static TCfgUser connect(String name, String password){
+		return find("name=? and password=?", name, password).first();
+	}
+	
 	public String toString(){
 		if(displayName!= null && !"".equals(displayName)){
 			return displayName;
