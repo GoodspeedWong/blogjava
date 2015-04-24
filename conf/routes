@@ -15,5 +15,7 @@ GET     /public/                                staticDir:public
 * 		/admin 					module:crud
 *		/admin					module:secure
 
+GET		/restuser/show/{id}					RestUser.show
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

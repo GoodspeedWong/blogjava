@@ -2,6 +2,8 @@
 # For example, for French create a messages.fr file
 #
 
+application.title=后台管理系统
+
 # User I18N
 TCfgUser = 用户
 Users=用户列表

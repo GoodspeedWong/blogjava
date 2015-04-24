@@ -1,6 +1,7 @@
 tmp
 eclipse
 logs
+data
 .classpath
 .project
 .settings

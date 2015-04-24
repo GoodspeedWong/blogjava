@@ -1,7 +1,13 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
+
+<a href="@{Application.test()}" class="btn btn-primary">Execute</a>
 <ul>
 #{list items:blogs, as:'blog'}
 	<li>${blog.title}</li>
+#{/list}
+
+#{list items:0..10, as:'i'}
+	<li>${i}</li>
 #{/list}
 </ul>

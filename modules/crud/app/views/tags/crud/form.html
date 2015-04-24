@@ -19,14 +19,13 @@
 }%
 
 #{list items:_fields ?: currentType.fields*.name, as:'fieldName'}
-
     %{
         am = ''
     }%
 
     %{ def field = currentType.getField(fieldName) }%
 
-<div class="crudField crud_${field.type}">
+<div class="form-group crud_${field.type}">
 
     %{ if(fieldsHandler[fieldName]) { }%
         %{
@@ -86,7 +85,7 @@
             #{crud.hiddenField name:field.name, value:(currentObject ? currentObject[field.name] : null) /}
         #{/if}
 
-    <span class="crudHelp">
+    <p class="help-block">
         &{am}
             %{ play.data.validation.Validation.getValidators(currentType.entityClass, fieldName, 'object').each() { }%
                 %{
@@ -129,10 +128,9 @@
                     }
                 }%
             %{ } }%
-    </span>
+    </p>
 
     %{ } }%
 
 </div>
-
 #{/list}

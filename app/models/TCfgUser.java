@@ -13,6 +13,7 @@ import play.data.validation.MinSize;
 import play.data.validation.Password;
 import play.data.validation.Range;
 import play.data.validation.Required;
+import play.db.jpa.Blob;
 import play.db.jpa.Model;
 
 @Entity
@@ -34,7 +35,9 @@ public class TCfgUser extends Model {
 	public String password;
 	
 	@Range(min=1,max=1000)
-	public int age;
+	public int age=18;
+	
+	public Blob logo;
 	
 	@Lob
 	@MaxSize(5000)
