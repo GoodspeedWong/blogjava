@@ -2,12 +2,24 @@
 #{set title:'Home' /}
 
 <a href="@{Application.test()}" class="btn btn-primary">Execute</a>
-<ul>
-#{list items:blogs, as:'blog'}
-	<li>${blog.title}</li>
-#{/list}
 
-#{list items:0..10, as:'i'}
-	<li>${i}</li>
-#{/list}
-</ul>
+<div class="row">
+	<div class="col-sm-9">
+		<ul class="list-unstyled">
+		#{list items:blogs, as:'blog'}
+			<li><a href="@{Application.showBlog(blog.id)}">${blog.title}</a></li>
+		#{/list}
+		
+		</ul>
+	</div>
+	<div class="col-sm-3">
+		<ul>
+		#{list items:topBlogs, as:'blog'}
+			<li><a href="#">${blog.title}</a></li>
+		#{/list}
+		
+		</ul>
+	</div>
+</div>
+
+

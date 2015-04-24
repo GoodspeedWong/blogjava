@@ -17,5 +17,7 @@ GET     /public/                                staticDir:public
 
 GET		/restuser/show/{id}					RestUser.show
 
+GET		/blog/{id}						Application.showBlog
+
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

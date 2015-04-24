@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinTable;
 import javax.persistence.Lob;
@@ -29,6 +30,8 @@ public class TCfgBlog extends Model {
 	@MaxSize(5000)
 	@Lob
 	public String content;
+	
+	public Boolean top;
 	
 	@Hidden
 	public Long create_at = Calendar.getInstance().getTimeInMillis();

@@ -1,6 +1,7 @@
 package controllers;
 
 import play.*;
+import play.db.jpa.JPA;
 import play.jobs.Job;
 import play.mvc.*;
 
@@ -19,8 +20,15 @@ import models.TCfgUser;
 public class Application extends Controller {
 
     public static void index() {
-    	List<TCfgBlog> blogs = TCfgBlog.findAll();
-    	render(blogs);
+    	List<TCfgBlog> blogs = TCfgBlog.find("order by update_at desc").fetch();
+    	List<TCfgBlog> topBlogs = TCfgBlog.find("top=?",true).fetch();
+    	
+    	render(blogs, topBlogs);
+    }
+    
+    public static void showBlog(Long id){
+    	TCfgBlog blog = TCfgBlog.findById(id);
+    	render("Application/blog.html",blog);
     }
 
     public static void indexJson(){
