@@ -20,6 +20,7 @@ import models.TCfgUser;
 public class Application extends Controller {
 
     public static void index() {
+    	
     	List<TCfgBlog> blogs = TCfgBlog.find("order by update_at desc").fetch();
     	List<TCfgBlog> topBlogs = TCfgBlog.find("top=?",true).fetch();
     	
@@ -34,6 +35,26 @@ public class Application extends Controller {
     public static void indexJson(){
     	List<TCfgBlog> blogs = TCfgBlog.findAll();
     	
+    }
+    
+    public static void list(Long test){
+    	TCfgBlog blog = TCfgBlog.findById(test);
+    	render(blog);
+    }
+    
+    public static void getJson(){
+    	List<TCfgBlog> blogs = TCfgBlog.findAll();
+    	renderJSON(blogs);
+    }
+    
+    public static void mail(){
+    	TCfgUser user = TCfgUser.find("name=?", "test1").first();
+    	if(user!=null){
+    		Mail.welcome(user);
+    		Logger.info("Mail has send to user:"+user.email);
+    	} else {
+    		Logger.warn("Cannot found the user.");
+    	}
     }
     
     public static void test(){

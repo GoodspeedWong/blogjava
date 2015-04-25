@@ -6,6 +6,7 @@ import javax.persistence.Table;
 
 import net.sf.oval.constraint.MaxLength;
 import net.sf.oval.constraint.MinLength;
+import play.data.validation.Email;
 import play.data.validation.Max;
 import play.data.validation.MaxSize;
 import play.data.validation.Min;
@@ -28,6 +29,10 @@ public class TCfgUser extends Model {
 	@MinSize(4)
 	@MaxSize(32)
 	public String displayName;
+	
+	@Required
+	@Email
+	public String email;
 	
 	@MinSize(6)
 	@MaxSize(64)

@@ -1,6 +1,20 @@
 #{extends 'main.html' /}
 #{set title: blog.title /}
 
-<h1>${blog.title}</h1>
-
-<p>${blog.content}</p>
+<div class="row">
+	<div class="col-sm-12">
+		<h1>${blog.title}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-3">
+		<i class="fa fa-calendar"></i> &nbsp;${blog.update_at.asdate("yyyy-MM-dd HH:mm")}
+	</div>
+	<div class="col-sm-9">
+		<i class="fa fa-tags"></i> &nbsp;
+		#{list items:blog.tags, as:'tag'}
+			<a href="#"><label class="label label-primary">${tag}</label></a>${tag_isLast ?"":", "}
+		#{/list}
+	</div>
+</div>
+<p>${blog.content.raw()}</p>

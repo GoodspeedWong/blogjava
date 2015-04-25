@@ -2,24 +2,59 @@
 #{set title:'Home' /}
 
 <a href="@{Application.test()}" class="btn btn-primary">Execute</a>
-
+<a href="#" onclick="javascript:getJson()">Get</a>
 <div class="row">
 	<div class="col-sm-9">
-		<ul class="list-unstyled">
 		#{list items:blogs, as:'blog'}
-			<li><a href="@{Application.showBlog(blog.id)}">${blog.title}</a></li>
+			<div class="funny-boxes funny-boxes-top-sea">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2><a href="#" onclick="javascript:showBlog(${blog.id})">${blog.title}</a></h2>
+						<ul class="list-unstyled funny-boxes-rating">
+                               <li><i class="fa fa-star"></i></li>
+                               <li><i class="fa fa-star"></i></li>
+                               <li><i class="fa fa-star"></i></li>
+                               <li><i class="fa fa-star"></i></li>
+                               <li><i class="fa fa-star"></i></li>
+                            </ul>
+                          <p>
+                          	${blog.content.raw()}
+                          </p>
+					</div>
+				</div>
+			</div>
 		#{/list}
-		
-		</ul>
+		<div class="row">
+			<div class="col-sm-12" id="blogitems">
+			</div>
+		</div>
 	</div>
 	<div class="col-sm-3">
 		<ul>
 		#{list items:topBlogs, as:'blog'}
-			<li><a href="#">${blog.title}</a></li>
+			<li><a href="#" onclick="javascript:showBlog(${blog.id})">${blog.title}</a></li>
 		#{/list}
 		
 		</ul>
 	</div>
 </div>
+
+
+
+<script>
+	function showBlog(abc){
+		var listAction = #{jsAction @list(':test') /};
+		$("#blogitems").load(listAction({test:abc}));
+		
+	}
+	
+	function getJson(){
+		$.getJSON("@{Application.getJson()}", function(data){
+			$.each(data, function(key,val){
+				console.log(key+"-"+val.title+"-"+val.content);
+			})
+		})
+	}
+</script>
 
 
